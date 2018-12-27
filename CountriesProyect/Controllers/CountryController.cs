@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CountriesProyect.Models;
 using CountriesProyect.Repositorys;
+using CountriesProyect.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -18,23 +19,20 @@ namespace CountriesProyect.Controllers
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class CountryController : ControllerBase
     {
-        private readonly ApplicationDbContext context;
+        private readonly ICountriesService service;
 
-        public CountryController (ApplicationDbContext context)
-        {
-            this.context = context;
-        }
+        public CountryController(ICountriesService service) => this.service = service;
 
         [HttpGet]
         public IEnumerable<Country> Get()
         {
-            return context.country.ToList();
+            return this.service.getAllCountries();
         }
 
         [HttpGet("{id}", Name = "countryById")]
         public IActionResult GetById(int id)
         {
-            var country = this.context.country.Include(x => x.states).FirstOrDefault(x => x.id == id);
+            var country = this.service.getCountryById(id);
 
             if(country == null)
             {
@@ -49,8 +47,7 @@ namespace CountriesProyect.Controllers
         {
             if (ModelState.IsValid)
             {
-                context.country.Add(country);
-                context.SaveChanges();
+                this.service.addCountry(country);
                 return new CreatedAtRouteResult("countryById", new { id = country.id }, country );
             }
 
@@ -61,28 +58,24 @@ namespace CountriesProyect.Controllers
         public IActionResult updateCountry([FromBody] Country country
             , int id)
         {
-            if(country.id != id)
+            if (country.id != id)
             {
                 return BadRequest();
             }
 
-            this.context.Entry(country).State = EntityState.Modified;
-            context.SaveChanges();
+            this.service.updateCountry(country);
             return Ok();
         }
         [HttpDelete("{id}")]
         public IActionResult delete(int id)
         {
-            var country = this.context.country.FirstOrDefault(x => x.id == id);
+            Boolean deleted = this.service.deleteById(id);
 
-            if(country == null)
+            if(deleted == false)
             {
                 return NotFound();
-            }
-
-            this.context.country.Remove(country);
-            context.SaveChanges();
-            return Ok(country);
+            }            
+            return Ok(deleted);
         }
 
     }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CountriesProyect.Services
 {
-    public class CountriesService
+    public class CountriesService : ICountriesService
     {
         public ApplicationDbContext context;
 
