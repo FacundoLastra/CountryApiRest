@@ -1,0 +1,14 @@
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyect\bin\Debug\netcoreapp2.2\CountriesProyect.deps.json
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyect\bin\Debug\netcoreapp2.2\CountriesProyect.runtimeconfig.json
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyect\bin\Debug\netcoreapp2.2\CountriesProyect.runtimeconfig.dev.json
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyect\bin\Debug\netcoreapp2.2\CountriesProyect.dll
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyect\obj\Debug\netcoreapp2.2\CountriesProyect.csprojAssemblyReference.cache
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyect\obj\Debug\netcoreapp2.2\CountriesProyect.csproj.CoreCompileInputs.cache
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyect\obj\Debug\netcoreapp2.2\CountriesProyect.RazorAssemblyInfo.cache
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyect\obj\Debug\netcoreapp2.2\CountriesProyect.RazorAssemblyInfo.cs
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyect\obj\Debug\netcoreapp2.2\CountriesProyect.AssemblyInfoInputs.cache
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyect\obj\Debug\netcoreapp2.2\CountriesProyect.AssemblyInfo.cs
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyect\obj\Debug\netcoreapp2.2\CountriesProyect.RazorTargetAssemblyInfo.cache
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyect\bin\Debug\netcoreapp2.2\CountriesProyect.pdb
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyect\obj\Debug\netcoreapp2.2\CountriesProyect.dll
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyect\obj\Debug\netcoreapp2.2\CountriesProyect.pdb
