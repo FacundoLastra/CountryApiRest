@@ -19,7 +19,7 @@ namespace CountriesProyect.Services
 
         public List<Country> getAllCountries()
         {
-            return context.country.ToList();
+            return context.country.Include(x=> x.states).ToList();
 
         }
 
