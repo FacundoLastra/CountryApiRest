@@ -7,6 +7,7 @@ using CountriesProyect.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using CountriesProyect.Repositorys;
 
 namespace CountriesProyect.Controllers
 {
