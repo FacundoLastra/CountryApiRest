@@ -37,6 +37,7 @@ namespace CountriesProyect
             options.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
 
             services.AddScoped<ICountriesService, CountriesService>();
+            services.AddScoped<IStatesService, StatesService>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()

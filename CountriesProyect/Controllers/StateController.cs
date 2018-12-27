@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CountriesProyect.Repositorys;
+using CountriesProyect.Services;
 
 namespace CountriesProyect.Controllers
 {
@@ -15,23 +16,23 @@ namespace CountriesProyect.Controllers
     [ApiController]
     public class StateController : ControllerBase
     {
-        private readonly ApplicationDbContext context;
+        private readonly IStatesService stateService;
 
-        public StateController(ApplicationDbContext context)
+        public StateController(IStatesService stateService)
         {
-            this.context = context;
+            this.stateService = stateService;
         }
 
         [HttpGet]
         public IEnumerable getAll(int countryId)
         {
-            return context.states.Where(x => x.countryId == countryId).ToList();
+            return this.stateService.getAllStates(countryId);
         }
 
         [HttpGet("{id}", Name = "stateById")]
         public IActionResult getOneState(int id)
         {
-            var country = this.context.states.FirstOrDefault(x => x.Id == id);
+            var country = this.stateService.getStateById(id);
 
             if(country == null)
             {
@@ -46,8 +47,7 @@ namespace CountriesProyect.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.context.Add(state);
-                this.context.SaveChanges();
+                this.stateService.addState(state);
                 return new CreatedAtRouteResult("stateById", new { id = state.Id }, state);
             }
 
@@ -57,16 +57,13 @@ namespace CountriesProyect.Controllers
         [HttpDelete("{id}")]
         public IActionResult deleteState(int id)
         {
-            var state = this.context.states.FirstOrDefault(x => x.Id == id);
+            bool deleted = this.stateService.deleteById(id);
 
-            if(state == null)
+            if(deleted == false)
             {
                 return BadRequest();
             }
-
-            this.context.states.Remove(state);
-            this.context.SaveChanges();
-            return Ok(state);
+            return Ok(deleted);
         }
 
         [HttpPut("{id}")]
@@ -76,8 +73,7 @@ namespace CountriesProyect.Controllers
             {
                 return BadRequest();
             }
-            this.context.Entry(state).State = EntityState.Modified;
-            this.context.SaveChanges();
+            this.stateService.updateState(state);
             return Ok(state);
         }
     }

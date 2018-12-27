@@ -10,7 +10,7 @@ namespace CountriesProyect.Services
 {
     public class CountriesService : ICountriesService
     {
-        public ApplicationDbContext context;
+        private readonly ApplicationDbContext context;
 
         public CountriesService(ApplicationDbContext context)
         {
