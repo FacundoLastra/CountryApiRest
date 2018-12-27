@@ -17,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using CountriesProyect.Services;
 
 namespace CountriesProyect
 {
@@ -34,6 +35,9 @@ namespace CountriesProyect
         {
             services.AddDbContext<ApplicationDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
+
+            services.AddScoped<ICountriesService, CountriesService>();
+            services.AddScoped<IStatesService, StatesService>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
