@@ -38,6 +38,7 @@ namespace CountriesProyect
 
             services.AddScoped<ICountriesService, CountriesService>();
             services.AddScoped<IStatesService, StatesService>();
+            services.AddScoped<ICitiesService, CitiesService>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
