@@ -11,10 +11,11 @@ namespace CountriesProyect.Repositorys
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
-        
 
-        public DbSet<Country> country { get; set; } 
+
+        public DbSet<Country> country { get; set; }
         public DbSet<State> states { get; set; }
+        public DbSet<City> cities { get; set; }
 
     }
 }

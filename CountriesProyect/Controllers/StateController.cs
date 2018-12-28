@@ -9,11 +9,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CountriesProyect.Repositorys;
 using CountriesProyect.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace CountriesProyect.Controllers
 {
     [Route("api/Country/{countryId}/State")]
     [ApiController]
+    [Produces("application/json")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class StateController : ControllerBase
     {
         private readonly IStatesService stateService;
