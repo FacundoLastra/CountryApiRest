@@ -9,12 +9,12 @@ namespace CountriesProyect.Models
 {
     public class City
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public long poblation { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public long Poblation { get; set; }
         [ForeignKey("State")]
-        public int stateID { get; set; }
+        public int StateID { get; set; }
         [JsonIgnore]
-        public State state { get; set; }
+        public State State { get; set; }
     }
 }

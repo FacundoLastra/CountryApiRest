@@ -114,14 +114,14 @@ namespace CountriesProyect
             {
                 context.country.AddRange(new List<Country>()
                 {
-                    new Country(){Name = "Argentina", states = new List<State>(){
+                    new Country(){Name = "Argentina", States = new List<State>(){
                         new State(){Name="Buenos Aires"},
                         new State(){Name="Tucuman"}
                     } },
-                    new Country(){Name = "Mexico", states = new List<State>(){
+                    new Country(){Name = "Mexico", States = new List<State>(){
                         new State(){Name="Veracruz"}
                     } },
-                    new Country(){Name = "USA", states = new List<State>(){
+                    new Country(){Name = "USA", States = new List<State>(){
                         new State(){Name="Florida"}
                     } }
                 });

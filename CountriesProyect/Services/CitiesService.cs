@@ -20,7 +20,7 @@ namespace CountriesProyect.Services
         public void addCity(City city)
         {
             this.context.cities.Add(city);
-            this.context.SaveChanges();
+            this.context.SaveChanges();           
         }
 
         public bool deleteById(int id)
@@ -44,7 +44,7 @@ namespace CountriesProyect.Services
 
         public City getCityById(int id)
         {
-            return this.context.cities.FirstOrDefault(x => x.id == id);
+            return this.context.cities.FirstOrDefault(x => x.Id == id);
         }
 
         public void updateCity(City city)

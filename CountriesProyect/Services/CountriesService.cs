@@ -19,7 +19,7 @@ namespace CountriesProyect.Services
 
         public List<Country> getAllCountries()
         {
-            return context.country.Include(x=> x.states).ToList();
+            return context.country.Include(x=> x.States).ThenInclude(x=> x.Cities).ToList();
 
         }
 
@@ -31,7 +31,7 @@ namespace CountriesProyect.Services
 
         public Country getCountryById(int id)
         {
-            return this.context.country.FirstOrDefault(x => x.id == id);  
+            return this.context.country.FirstOrDefault(x => x.Id == id);  
         }
 
         public Boolean deleteById(int id)

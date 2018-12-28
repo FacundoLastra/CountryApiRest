@@ -48,7 +48,7 @@ namespace CountriesProyect.Controllers
             if (ModelState.IsValid)
             {
                 this.service.addCountry(country);
-                return new CreatedAtRouteResult("countryById", new { id = country.id }, country );
+                return new CreatedAtRouteResult("countryById", new { id = country.Id }, country );
             }
 
             return BadRequest(ModelState);
@@ -58,7 +58,7 @@ namespace CountriesProyect.Controllers
         public IActionResult updateCountry([FromBody] Country country
             , int id)
         {
-            if (country.id != id)
+            if (country.Id != id)
             {
                 return BadRequest();
             }

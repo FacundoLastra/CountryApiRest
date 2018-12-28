@@ -10,14 +10,14 @@ namespace CountriesProyect.Models
     {
         public Country()
         {
-            this.states = new List<State>();
+            this.States = new List<State>();
         }
 
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [StringLength(30, MinimumLength = 3)][Required(ErrorMessage = "The name of the country is required")]
         public string Name { get; set; }
 
-        public List<State> states { get; set; }
+        public List<State> States { get; set; }
     }
 }

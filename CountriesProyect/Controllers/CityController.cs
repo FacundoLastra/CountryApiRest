@@ -48,7 +48,7 @@ namespace CountriesProyect.Controllers
             if (ModelState.IsValid)
             {
                 this.citiesService.addCity(city);
-                return new CreatedAtRouteResult("cityById", new { id = city.id }, city);
+                return new CreatedAtRouteResult("cityById", new { id = city.Id }, city);
             }
             return BadRequest();     
         }
@@ -68,7 +68,7 @@ namespace CountriesProyect.Controllers
         [HttpPut("{id}")]
         public IActionResult updateCity ([FromBody] City city, int id)
         {
-            if(id != city.id || !ModelState.IsValid)
+            if(id != city.Id || !ModelState.IsValid)
             {
                 return BadRequest();
             }

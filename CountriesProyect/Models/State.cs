@@ -12,8 +12,10 @@ namespace CountriesProyect.Models
         public int Id { get; set; }
         public string Name { get; set; }
         [ForeignKey("Country")]
-        public int countryId { get; set; }
+        public int CountryId { get; set; }
         [JsonIgnore]
         public Country MyCountry { get; set; }
+
+        public List<City> Cities { get; set; }
     }
 }

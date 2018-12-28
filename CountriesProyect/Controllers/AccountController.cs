@@ -83,6 +83,7 @@ namespace CountriesProyect.Controllers
         {
             var claims = new[]
             {
+                ///adding data to the token
             new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.Email),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
@@ -90,8 +91,10 @@ namespace CountriesProyect.Controllers
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Llave_Super_Secreta"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
+            ///adding expiration time
             var expiration = DateTime.UtcNow.AddHours(2);
 
+            ///bulding token
             JwtSecurityToken token = new JwtSecurityToken(
                 issuer: "countriesApi.com",
                 audience: "countriesApi.com",
