@@ -38,7 +38,7 @@ namespace CountriesProyect.Services
 
         public List<State> getAllStates(int countryId)
         {
-            return context.states.Where(x => x.CountryId == countryId).Include(x => x.Cities).ToList();
+            return context.states.Where(x => x.CountryId == countryId).Include(x => x.Cities ).ToList();
         }
 
         public State getStateById(int id)

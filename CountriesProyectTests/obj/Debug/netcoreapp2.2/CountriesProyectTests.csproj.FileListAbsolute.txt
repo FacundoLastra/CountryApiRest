@@ -1,0 +1,17 @@
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\bin\Debug\netcoreapp2.2\CountriesProyectTests.deps.json
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\bin\Debug\netcoreapp2.2\CountriesProyectTests.runtimeconfig.json
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\bin\Debug\netcoreapp2.2\CountriesProyectTests.runtimeconfig.dev.json
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\bin\Debug\netcoreapp2.2\CountriesProyectTests.dll
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\bin\Debug\netcoreapp2.2\CountriesProyect.dll
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\bin\Debug\netcoreapp2.2\CountriesProyect.pdb
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\obj\Debug\netcoreapp2.2\CountriesProyectTests.csprojAssemblyReference.cache
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\obj\Debug\netcoreapp2.2\CountriesProyectTests.csproj.CoreCompileInputs.cache
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\obj\Debug\netcoreapp2.2\CountriesProyectTests.AssemblyInfoInputs.cache
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\obj\Debug\netcoreapp2.2\CountriesProyectTests.AssemblyInfo.cs
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\obj\Debug\netcoreapp2.2\CountriesProyectTests.csproj.CopyComplete
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\bin\Debug\netcoreapp2.2\CountriesProyectTests.pdb
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\obj\Debug\netcoreapp2.2\CountriesProyectTests.dll
+C:\Users\facundo.lastra\source\repos\CountriesProyect\CountriesProyectTests\obj\Debug\netcoreapp2.2\CountriesProyectTests.pdb

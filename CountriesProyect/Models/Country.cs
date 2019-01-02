@@ -13,6 +13,13 @@ namespace CountriesProyect.Models
             this.States = new List<State>();
         }
 
+        public Country(int id, string name, List<State> states)
+        {
+            Id = id;
+            Name = name;
+            States = states;
+        }
+
         public int Id { get; set; }
 
         [StringLength(30, MinimumLength = 3)][Required(ErrorMessage = "The name of the country is required")]
