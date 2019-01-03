@@ -46,7 +46,7 @@ namespace CountriesProyectTests.Services
             {
                 var service = new CountriesService(context);
                 service.AddCountry(countryToSave);
-                Assert.Single(service.getAllCountries());
+                Assert.Single(service.GetAllCountries());
             }
         }
 
@@ -63,9 +63,9 @@ namespace CountriesProyectTests.Services
             {
                 var service = new CountriesService(context);
                 service.AddCountry(countryToSave);
-                Assert.Single(service.getAllCountries());
+                Assert.Single(service.GetAllCountries());
                 service.DeleteById(1);
-                Assert.Empty(service.getAllCountries());
+                Assert.Empty(service.GetAllCountries());
             }
         }
 

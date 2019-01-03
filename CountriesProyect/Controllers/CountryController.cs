@@ -43,7 +43,7 @@ namespace CountriesProyect.Controllers
         }
 
         [HttpPost]
-        public IActionResult createCountry([FromBody] Country country)
+        public IActionResult CreateCountry([FromBody] Country country)
         {
             if (ModelState.IsValid)
             {
@@ -55,7 +55,7 @@ namespace CountriesProyect.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult updateCountry([FromBody] Country country
+        public IActionResult UpdateCountry([FromBody] Country country
             , int id)
         {
             if (country.Id != id)
@@ -67,7 +67,7 @@ namespace CountriesProyect.Controllers
             return Ok();
         }
         [HttpDelete("{id}")]
-        public IActionResult delete(int id)
+        public IActionResult Delete(int id)
         {
             Boolean deleted = this.service.DeleteById(id);
 

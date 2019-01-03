@@ -16,14 +16,14 @@ namespace CountriesProyectTests.Controllers
         public void Controller_Get_All_Cities()
         {
             var serviceMock = new Mock<ICitiesService>();
-            serviceMock.Setup(x => x.getAllCities()).Returns(() => new List<City>
+            serviceMock.Setup(x => x.GetAllCities()).Returns(() => new List<City>
             {
                 new City{ Id= 0, Name = "Buenos Aires" },
                 new City{ Id= 1, Name = "Mar del Plata"}
             });
             var controller = new CityController(serviceMock.Object);
 
-            var result = controller.getAllCities();
+            var result = controller.GetAllCities();
 
             Assert.Equal(2, ((List<City>)result).Count);
         }
@@ -32,12 +32,12 @@ namespace CountriesProyectTests.Controllers
         public void GoodWay_Controller_Get_By_Id()
         {
             var serviceMock = new Mock<ICitiesService>();
-            serviceMock.Setup(x => x.getCityById(1))
+            serviceMock.Setup(x => x.GetCityById(1))
                 .Returns(() => new City { Id = 1, Name = "Buenos Aires" });
 
             var controller = new CityController(serviceMock.Object);
 
-            IActionResult result = controller.getById(1);
+            IActionResult result = controller.GetById(1);
 
             Assert.IsType<OkObjectResult>((ActionResult)result);
         }
@@ -46,12 +46,12 @@ namespace CountriesProyectTests.Controllers
         public void BadWay_Controller_Get_By_Id()
         {
             var serviceMock = new Mock<ICitiesService>();
-            serviceMock.Setup(x => x.getCityById(1))
+            serviceMock.Setup(x => x.GetCityById(1))
                 .Returns(() => new City { Id = 1, Name = "Buenos Aires" });
 
             var controller = new CityController(serviceMock.Object);
 
-            IActionResult result = controller.getById(2);
+            IActionResult result = controller.GetById(2);
 
             Assert.IsType<NotFoundObjectResult>((ActionResult)result);
         }
@@ -65,7 +65,7 @@ namespace CountriesProyectTests.Controllers
 
             var controller = new CityController(serviceMock.Object);
 
-            IActionResult result = controller.addCity(cityToSave);
+            IActionResult result = controller.AddCity(cityToSave);
 
             Assert.IsType<CreatedAtRouteResult>((ActionResult)result);
         }
@@ -74,12 +74,12 @@ namespace CountriesProyectTests.Controllers
         public void GoodWay_Controller_Delete_City()
         {
             var serviceMock = new Mock<ICitiesService>();
-            serviceMock.Setup(x => x.deleteById(1))
+            serviceMock.Setup(x => x.DeleteById(1))
                 .Returns(() => true);
 
             var controller = new CityController(serviceMock.Object);
 
-            IActionResult result = controller.deleteCity(1);
+            IActionResult result = controller.DeleteCity(1);
 
             Assert.IsType<OkObjectResult>((ActionResult)result);
         }
@@ -88,12 +88,12 @@ namespace CountriesProyectTests.Controllers
         public void BadWay_Controller_Delete_City()
         {
             var serviceMock = new Mock<ICitiesService>();
-            serviceMock.Setup(x => x.deleteById(1))
+            serviceMock.Setup(x => x.DeleteById(1))
                 .Returns(() => false);
 
             var controller = new CityController(serviceMock.Object);
 
-            IActionResult result = controller.deleteCity(1);
+            IActionResult result = controller.DeleteCity(1);
 
             Assert.IsType<NotFoundResult>((ActionResult)result);
         }
@@ -106,7 +106,7 @@ namespace CountriesProyectTests.Controllers
 
             var controller = new CityController(serviceMock.Object);
 
-            IActionResult result = controller.updateCity(cityToUpdate, cityToUpdate.Id);
+            IActionResult result = controller.UpdateCity(cityToUpdate, cityToUpdate.Id);
 
             Assert.IsType<OkObjectResult>((ActionResult)result);
         }
@@ -119,7 +119,7 @@ namespace CountriesProyectTests.Controllers
 
             var controller = new CityController(serviceMock.Object);
 
-            IActionResult result = controller.updateCity(cityToUpdate, 2);
+            IActionResult result = controller.UpdateCity(cityToUpdate, 2);
 
             Assert.IsType<BadRequestResult>((ActionResult)result);
         }

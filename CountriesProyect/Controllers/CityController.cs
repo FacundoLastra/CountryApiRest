@@ -26,13 +26,13 @@ namespace CountriesProyect.Controllers
         }
 
         [HttpGet]
-        public IEnumerable getAllCities()
+        public IEnumerable GetAllCities()
         {
             return this.citiesService.GetAllCities();
         }
 
         [HttpGet("{id}", Name = "cityById")]
-        public IActionResult getById(int id)
+        public IActionResult GetById(int id)
         {
             var city = this.citiesService.GetCityById(id);
             if(city == null)
@@ -43,7 +43,7 @@ namespace CountriesProyect.Controllers
         }
 
         [HttpPost]
-        public IActionResult addCity([FromBody]City city)
+        public IActionResult AddCity([FromBody]City city)
         {
             if (ModelState.IsValid)
             {
@@ -54,7 +54,7 @@ namespace CountriesProyect.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult deleteCity (int id)
+        public IActionResult DeleteCity (int id)
         {
             bool deleted = this.citiesService.DeleteById(id);
             if (deleted)
@@ -66,7 +66,7 @@ namespace CountriesProyect.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult updateCity ([FromBody] City city, int id)
+        public IActionResult UpdateCity ([FromBody] City city, int id)
         {
             if(id != city.Id || !ModelState.IsValid)
             {
