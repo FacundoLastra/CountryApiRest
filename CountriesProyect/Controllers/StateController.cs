@@ -40,7 +40,7 @@ namespace CountriesProyect.Controllers
 
             if(country == null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
             return Ok(country);
@@ -65,13 +65,13 @@ namespace CountriesProyect.Controllers
 
             if(deleted == false)
             {
-                return BadRequest();
+                return NotFound();
             }
             return Ok(deleted);
         }
 
         [HttpPut("{id}")]
-        public IActionResult updateState(int id, [FromBody] State state)
+        public IActionResult updateState([FromBody] State state, int id)
         {
             if(id != state.Id)
             {

@@ -37,7 +37,7 @@ namespace CountriesProyect.Controllers
             var city = this.citiesService.getCityById(id);
             if(city == null)
             {
-                return BadRequest(city);
+                return NotFound(city);
             }
             return Ok(city);
         }
@@ -62,7 +62,7 @@ namespace CountriesProyect.Controllers
                 return Ok(deleted);
             }
 
-            return BadRequest();
+            return NotFound();
         }
 
         [HttpPut("{id}")]
