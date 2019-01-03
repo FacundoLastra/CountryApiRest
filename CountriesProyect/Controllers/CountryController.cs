@@ -26,13 +26,13 @@ namespace CountriesProyect.Controllers
         [HttpGet]
         public IEnumerable<Country> Get()
         {
-            return this.service.getAllCountries();
+            return this.service.GetAllCountries();
         }
 
         [HttpGet("{id}", Name = "countryById")]
         public IActionResult GetById(int id)
         {
-            var country = this.service.getCountryById(id);
+            var country = this.service.GetCountryById(id);
 
             if(country == null)
             {
@@ -47,7 +47,7 @@ namespace CountriesProyect.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.service.addCountry(country);
+                this.service.AddCountry(country);
                 return new CreatedAtRouteResult("countryById", new { id = country.Id }, country );
             }
 
@@ -63,13 +63,13 @@ namespace CountriesProyect.Controllers
                 return BadRequest();
             }
 
-            this.service.updateCountry(country);
+            this.service.UpdateCountry(country);
             return Ok();
         }
         [HttpDelete("{id}")]
         public IActionResult delete(int id)
         {
-            Boolean deleted = this.service.deleteById(id);
+            Boolean deleted = this.service.DeleteById(id);
 
             if(deleted == false)
             {
