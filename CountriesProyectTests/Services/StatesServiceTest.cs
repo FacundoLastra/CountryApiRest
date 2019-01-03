@@ -24,7 +24,7 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new StatesService(context);
-                service.addState(stateToSave);
+                service.AddState(stateToSave);
             }
             using (var context = new ApplicationDbContext(options))
             {
@@ -57,13 +57,13 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new StatesService(context);
-                service.addState(stateToSave);
-                service.addState(otherStateToSave);
+                service.AddState(stateToSave);
+                service.AddState(otherStateToSave);
             }
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new StatesService(context);
-                Assert.Equal(2, service.getAllStates(1).Count);
+                Assert.Equal(2, service.GetAllStates(1).Count);
             }
         }
 
@@ -81,8 +81,8 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new StatesService(context);
-                service.addState(stateToSave);
-                Assert.NotNull(service.getStateById(1));
+                service.AddState(stateToSave);
+                Assert.NotNull(service.GetStateById(1));
             }        
         }
 
@@ -101,13 +101,13 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new StatesService(context);
-                service.addState(stateToSave);
-                Assert.NotNull(service.getStateById(1));
+                service.AddState(stateToSave);
+                Assert.NotNull(service.GetStateById(1));
             }
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new StatesService(context);
-                service.deleteById(1);
+                service.DeleteById(1);
                 Assert.Empty(context.states.ToList());
             }
         }
@@ -125,13 +125,13 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new StatesService(context);
-                service.addState(stateToSave);
+                service.AddState(stateToSave);
 
-                var stateSaved = service.getStateById(1);
+                var stateSaved = service.GetStateById(1);
                 stateSaved.Name = "updatedName";
-                service.updateState(stateSaved);
+                service.UpdateState(stateSaved);
 
-                Assert.Equal("updatedName", service.getStateById(1).Name);
+                Assert.Equal("updatedName", service.GetStateById(1).Name);
             }
         }
     }

@@ -8,10 +8,10 @@ namespace CountriesProyect.Services
 {
     public interface ICountriesService
     {
-        List<Country> getAllCountries();
-        void addCountry(Country country);
-        Country getCountryById(int id);
-        Boolean deleteById(int id);
-        void updateCountry(Country country);
+        List<Country> GetAllCountries();
+        void AddCountry(Country country);
+        Country GetCountryById(int id);
+        Boolean DeleteById(int id);
+        void UpdateCountry(Country country);
     }
 }

@@ -25,7 +25,7 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new CountriesService(context);
-                service.addCountry(countryToSave);
+                service.AddCountry(countryToSave);
             }
             using (var context = new ApplicationDbContext(options))
             {
@@ -45,8 +45,8 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new CountriesService(context);
-                service.addCountry(countryToSave);
-                Assert.Single(service.getAllCountries());
+                service.AddCountry(countryToSave);
+                Assert.Single(service.GetAllCountries());
             }
         }
 
@@ -62,10 +62,10 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new CountriesService(context);
-                service.addCountry(countryToSave);
-                Assert.Single(service.getAllCountries());
-                service.deleteById(1);
-                Assert.Empty(service.getAllCountries());
+                service.AddCountry(countryToSave);
+                Assert.Single(service.GetAllCountries());
+                service.DeleteById(1);
+                Assert.Empty(service.GetAllCountries());
             }
         }
 
@@ -81,8 +81,8 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new CountriesService(context);
-                service.addCountry(countryToSave);
-                Assert.NotNull(service.getCountryById(1));
+                service.AddCountry(countryToSave);
+                Assert.NotNull(service.GetCountryById(1));
 
             }
         }
@@ -99,13 +99,13 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new CountriesService(context);
-                service.addCountry(countryToSave);
+                service.AddCountry(countryToSave);
 
-                var countrySaved = service.getCountryById(1);
+                var countrySaved = service.GetCountryById(1);
                 countrySaved.Name = "updatedName";
-                service.updateCountry(countrySaved);
+                service.UpdateCountry(countrySaved);
 
-                Assert.Equal("updatedName", service.getCountryById(1).Name);
+                Assert.Equal("updatedName", service.GetCountryById(1).Name);
             }
 
         }

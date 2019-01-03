@@ -26,15 +26,15 @@ namespace CountriesProyect.Controllers
         }
 
         [HttpGet]
-        public IEnumerable getAllCities()
+        public IEnumerable GetAllCities()
         {
-            return this.citiesService.getAllCities();
+            return this.citiesService.GetAllCities();
         }
 
         [HttpGet("{id}", Name = "cityById")]
-        public IActionResult getById(int id)
+        public IActionResult GetById(int id)
         {
-            var city = this.citiesService.getCityById(id);
+            var city = this.citiesService.GetCityById(id);
             if(city == null)
             {
                 return NotFound(city);
@@ -43,20 +43,20 @@ namespace CountriesProyect.Controllers
         }
 
         [HttpPost]
-        public IActionResult addCity([FromBody]City city)
+        public IActionResult AddCity([FromBody]City city)
         {
             if (ModelState.IsValid)
             {
-                this.citiesService.addCity(city);
+                this.citiesService.AddCity(city);
                 return new CreatedAtRouteResult("cityById", new { id = city.Id }, city);
             }
             return BadRequest();     
         }
 
         [HttpDelete("{id}")]
-        public IActionResult deleteCity (int id)
+        public IActionResult DeleteCity (int id)
         {
-            bool deleted = this.citiesService.deleteById(id);
+            bool deleted = this.citiesService.DeleteById(id);
             if (deleted)
             {
                 return Ok(deleted);
@@ -66,13 +66,13 @@ namespace CountriesProyect.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult updateCity ([FromBody] City city, int id)
+        public IActionResult UpdateCity ([FromBody] City city, int id)
         {
             if(id != city.Id || !ModelState.IsValid)
             {
                 return BadRequest();
             }
-            this.citiesService.updateCity(city);
+            this.citiesService.UpdateCity(city);
             return Ok(city);
         }
 

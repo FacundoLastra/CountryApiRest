@@ -28,15 +28,15 @@ namespace CountriesProyect.Controllers
         }
 
         [HttpGet]
-        public IEnumerable getAll(int countryId)
+        public IEnumerable GetAll(int countryId)
         {
-            return this.stateService.getAllStates(countryId);
+            return this.stateService.GetAllStates(countryId);
         }
 
         [HttpGet("{id}", Name = "stateById")]
-        public IActionResult getOneState(int id)
+        public IActionResult GetOneState(int id)
         {
-            var country = this.stateService.getStateById(id);
+            var country = this.stateService.GetStateById(id);
 
             if(country == null)
             {
@@ -47,11 +47,11 @@ namespace CountriesProyect.Controllers
         }
 
         [HttpPost]
-        public IActionResult addState([FromBody] State state)
+        public IActionResult AddState([FromBody] State state)
         {
             if (ModelState.IsValid)
             {
-                this.stateService.addState(state);
+                this.stateService.AddState(state);
                 return new CreatedAtRouteResult("stateById", new { id = state.Id }, state);
             }
 
@@ -59,9 +59,9 @@ namespace CountriesProyect.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult deleteState(int id)
+        public IActionResult DeleteState(int id)
         {
-            bool deleted = this.stateService.deleteById(id);
+            bool deleted = this.stateService.DeleteById(id);
 
             if(deleted == false)
             {
@@ -71,13 +71,13 @@ namespace CountriesProyect.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult updateState([FromBody] State state, int id)
+        public IActionResult UpdateState([FromBody] State state, int id)
         {
             if(id != state.Id)
             {
                 return BadRequest();
             }
-            this.stateService.updateState(state);
+            this.stateService.UpdateState(state);
             return Ok(state);
         }
     }

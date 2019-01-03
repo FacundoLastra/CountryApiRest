@@ -17,26 +17,26 @@ namespace CountriesProyect.Services
             this.context = context;
         }
 
-        public List<Country> getAllCountries()
+        public List<Country> GetAllCountries()
         {
             return context.country.Include(x=> x.States).ThenInclude(x=> x.Cities).ToList();
 
         }
 
-        public void addCountry(Country country)
+        public void AddCountry(Country country)
         {
             this.context.country.Add(country);
             this.context.SaveChanges();
         }
 
-        public Country getCountryById(int id)
+        public Country GetCountryById(int id)
         {
             return this.context.country.FirstOrDefault(x => x.Id == id);  
         }
 
-        public Boolean deleteById(int id)
+        public Boolean DeleteById(int id)
         {
-            var country = this.getCountryById(id);
+            var country = this.GetCountryById(id);
             if(country == null)
             {
                 return false;
@@ -46,7 +46,7 @@ namespace CountriesProyect.Services
             return true;
         }
 
-        public void updateCountry( Country country)
+        public void UpdateCountry( Country country)
         {
             this.context.Entry(country).State = EntityState.Modified;
             this.context.SaveChanges();

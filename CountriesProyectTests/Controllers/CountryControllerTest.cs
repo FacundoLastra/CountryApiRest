@@ -19,7 +19,7 @@ namespace CountriesProyectTests.Controllers
         {
             
             var serviceMock = new Mock<ICountriesService>();
-            serviceMock.Setup(x => x.getAllCountries()).Returns(() => new List<Country>
+            serviceMock.Setup(x => x.GetAllCountries()).Returns(() => new List<Country>
             {
                 new Country{ Id= 0, Name = "Argentina" },
                 new Country{ Id= 1, Name = "Peru"}
@@ -36,7 +36,7 @@ namespace CountriesProyectTests.Controllers
         public void GoodWay_Controller_Get_By_Id()
         {
             var serviceMock = new Mock<ICountriesService>();
-            serviceMock.Setup(x => x.getCountryById(1))
+            serviceMock.Setup(x => x.GetCountryById(1))
                 .Returns(() => new Country { Id = 1, Name = "Argentina" });
 
             var controller = new CountryController(serviceMock.Object);
@@ -50,7 +50,7 @@ namespace CountriesProyectTests.Controllers
         public void BadWay_Controller_Get_By_Id()
         {
             var serviceMock = new Mock<ICountriesService>();
-            serviceMock.Setup(x => x.getCountryById(1))
+            serviceMock.Setup(x => x.GetCountryById(1))
                 .Returns(() => new Country { Id = 1, Name = "Argentina" });
 
             var controller = new CountryController(serviceMock.Object);
@@ -69,7 +69,7 @@ namespace CountriesProyectTests.Controllers
 
             var controller = new CountryController(serviceMock.Object);
 
-            IActionResult result = controller.createCountry(countryToSave);
+            IActionResult result = controller.CreateCountry(countryToSave);
 
             Assert.IsType<CreatedAtRouteResult>((ActionResult)result);
         }
@@ -78,12 +78,12 @@ namespace CountriesProyectTests.Controllers
         public void GoodWay_Controller_Delete_Country()
         {
             var serviceMock = new Mock<ICountriesService>();
-            serviceMock.Setup(x => x.deleteById(1))
+            serviceMock.Setup(x => x.DeleteById(1))
                 .Returns(() => true);
             
             var controller = new CountryController(serviceMock.Object);
 
-            IActionResult result = controller.delete(1);
+            IActionResult result = controller.Delete(1);
 
             Assert.IsType<OkObjectResult>((ActionResult)result);
         }
@@ -92,12 +92,12 @@ namespace CountriesProyectTests.Controllers
         public void BadWay_Controller_Delete_Country()
         {
             var serviceMock = new Mock<ICountriesService>();
-            serviceMock.Setup(x => x.deleteById(1))
+            serviceMock.Setup(x => x.DeleteById(1))
                 .Returns(() => false);
 
             var controller = new CountryController(serviceMock.Object);
 
-            IActionResult result = controller.delete(1);
+            IActionResult result = controller.Delete(1);
 
             Assert.IsType<NotFoundResult>((ActionResult)result);
         }
@@ -110,7 +110,7 @@ namespace CountriesProyectTests.Controllers
 
             var controller = new CountryController(serviceMock.Object);
 
-            IActionResult result = controller.updateCountry(countryToUpdate, countryToUpdate.Id);
+            IActionResult result = controller.UpdateCountry(countryToUpdate, countryToUpdate.Id);
 
             Assert.IsType<OkResult>((ActionResult)result);
 
@@ -124,7 +124,7 @@ namespace CountriesProyectTests.Controllers
 
             var controller = new CountryController(serviceMock.Object);
 
-            IActionResult result = controller.updateCountry(countryToUpdate, 3);
+            IActionResult result = controller.UpdateCountry(countryToUpdate, 3);
 
             Assert.IsType<BadRequestResult>((ActionResult)result);
 
