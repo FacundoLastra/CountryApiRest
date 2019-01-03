@@ -8,10 +8,10 @@ namespace CountriesProyect.Services
 {
     public interface ICitiesService
     {
-        List<City> getAllCities();
-        void addCity(City city);
-        City getCityById(int id);
-        Boolean deleteById(int id);
-        void updateCity(City city);
+        List<City> GetAllCities();
+        void AddCity(City city);
+        City GetCityById(int id);
+        Boolean DeleteById(int id);
+        void UpdateCity(City city);
     }
 }

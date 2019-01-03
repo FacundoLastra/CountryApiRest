@@ -17,15 +17,15 @@ namespace CountriesProyect.Services
             this.context = context;
         }
 
-        public void addCity(City city)
+        public void AddCity(City city)
         {
             this.context.cities.Add(city);
             this.context.SaveChanges();           
         }
 
-        public bool deleteById(int id)
+        public bool DeleteById(int id)
         {
-            var city = this.getCityById(id);
+            var city = this.GetCityById(id);
 
             if( city == null)
             {
@@ -37,17 +37,17 @@ namespace CountriesProyect.Services
             return true;
         }
 
-        public List<City> getAllCities()
+        public List<City> GetAllCities()
         {
             return this.context.cities.ToList();
         }
 
-        public City getCityById(int id)
+        public City GetCityById(int id)
         {
             return this.context.cities.FirstOrDefault(x => x.Id == id);
         }
 
-        public void updateCity(City city)
+        public void UpdateCity(City city)
         {
             this.context.Entry(city).State = EntityState.Modified;
             this.context.SaveChanges();

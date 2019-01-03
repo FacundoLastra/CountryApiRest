@@ -28,13 +28,13 @@ namespace CountriesProyect.Controllers
         [HttpGet]
         public IEnumerable getAllCities()
         {
-            return this.citiesService.getAllCities();
+            return this.citiesService.GetAllCities();
         }
 
         [HttpGet("{id}", Name = "cityById")]
         public IActionResult getById(int id)
         {
-            var city = this.citiesService.getCityById(id);
+            var city = this.citiesService.GetCityById(id);
             if(city == null)
             {
                 return NotFound(city);
@@ -47,7 +47,7 @@ namespace CountriesProyect.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.citiesService.addCity(city);
+                this.citiesService.AddCity(city);
                 return new CreatedAtRouteResult("cityById", new { id = city.Id }, city);
             }
             return BadRequest();     
@@ -56,7 +56,7 @@ namespace CountriesProyect.Controllers
         [HttpDelete("{id}")]
         public IActionResult deleteCity (int id)
         {
-            bool deleted = this.citiesService.deleteById(id);
+            bool deleted = this.citiesService.DeleteById(id);
             if (deleted)
             {
                 return Ok(deleted);
@@ -72,7 +72,7 @@ namespace CountriesProyect.Controllers
             {
                 return BadRequest();
             }
-            this.citiesService.updateCity(city);
+            this.citiesService.UpdateCity(city);
             return Ok(city);
         }
 

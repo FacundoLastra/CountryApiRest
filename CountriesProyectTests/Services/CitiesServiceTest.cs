@@ -29,7 +29,7 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new CitiesService(context);
-                service.addCity(cityToSave);
+                service.AddCity(cityToSave);
             }
             using (var context = new ApplicationDbContext(options))
             {
@@ -58,13 +58,13 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new CitiesService(context);
-                service.addCity(cityToSave);
-                service.addCity(otherCityToSave);
+                service.AddCity(cityToSave);
+                service.AddCity(otherCityToSave);
             }
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new CitiesService(context);
-                Assert.Equal(2, service.getAllCities().Count);
+                Assert.Equal(2, service.GetAllCities().Count);
             }
         }
 
@@ -85,12 +85,12 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new CitiesService(context);
-                service.addCity(cityToSave);                
+                service.AddCity(cityToSave);                
             }
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new CitiesService(context);
-                Assert.NotNull(service.getCityById(1));
+                Assert.NotNull(service.GetCityById(1));
             }
         }
 
@@ -111,13 +111,13 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new CitiesService(context);
-                service.addCity(cityToSave);
+                service.AddCity(cityToSave);
             }
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new CitiesService(context);
-                service.deleteById(1);
-                Assert.Empty(service.getAllCities());
+                service.DeleteById(1);
+                Assert.Empty(service.GetAllCities());
             }
         }
 
@@ -139,13 +139,13 @@ namespace CountriesProyectTests.Services
             using (var context = new ApplicationDbContext(options))
             {
                 var service = new CitiesService(context);
-                service.addCity(cityToSave);
+                service.AddCity(cityToSave);
 
-                var citySaved = service.getCityById(1);
+                var citySaved = service.GetCityById(1);
                 citySaved.Name = "updatedName";
-                service.updateCity(citySaved);
+                service.UpdateCity(citySaved);
 
-                Assert.Equal("updatedName", service.getCityById(1).Name);
+                Assert.Equal("updatedName", service.GetCityById(1).Name);
             }
         }
     }
