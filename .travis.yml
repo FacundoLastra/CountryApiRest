@@ -2,7 +2,7 @@ language: csharp
 solution: CountriesProyect.sln
 matrix:
   include:
-    - dotnet: 2.2.0
+    - dotnet: 2.2
 
 install:
   - nuget restore CountriesProyect.sln
