@@ -2,8 +2,8 @@ language: csharp
 solution: CountriesProyect.sln
 matrix:
   include:
-    - dotnet: 2.2.101
-    
+    - dotnet: 2.1.502
+
 install:
   - nuget restore CountriesProyect.sln
   - nuget install xunit.runners -Version 2.4.0 -OutputDirectory testrunner
